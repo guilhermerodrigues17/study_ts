@@ -18,7 +18,7 @@ console.log(Colors);
 console.log(Colors[0]);
 console.log(Colors.RED);
 
-function chooseColor(color: Colors): void {
+export function chooseColor(color: Colors): void {
   console.log(color);
 }
 
