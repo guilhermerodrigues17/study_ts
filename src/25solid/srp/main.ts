@@ -1,3 +1,7 @@
+/*
+Single Responsibility Principle - Cada entidade ou função deve ter apenas uma responsabilidade
+*/
+
 import { Order } from './entities/order';
 import { Product } from './entities/product';
 import { ShoppingCart } from './entities/shoppingCart';
