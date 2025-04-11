@@ -2,6 +2,7 @@
 Interface Segregation Principle - clientes não devem ser forçados a depender de interfaces que não utilizam
 */
 
+import { IndividualCustomer } from './classes/customer';
 import { NoDiscount } from './classes/discount';
 import { Order } from './classes/order';
 import { Product } from './classes/product';
@@ -13,7 +14,17 @@ const discount = new NoDiscount();
 const shoppingCart = new ShoppingCart(discount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(shoppingCart, messaging, persistency);
+const individualCustomer = new IndividualCustomer(
+  'John',
+  'Newman',
+  '111.111.111-11',
+);
+const order = new Order(
+  shoppingCart,
+  messaging,
+  persistency,
+  individualCustomer,
+);
 
 shoppingCart.addItem(new Product('T-Shirt', 20.99));
 shoppingCart.addItem(new Product('Soap', 4.5));

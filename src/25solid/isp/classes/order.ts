@@ -1,5 +1,6 @@
 import { Messaging } from '../services/messaging';
 import { Persistency } from '../services/persistency';
+import { CustomerOrder } from './interfaces/customerProtocol';
 import { OrderStatus } from './interfaces/orderStatus';
 import { ShoppingCart } from './shoppingCart';
 
@@ -10,6 +11,7 @@ export class Order {
     private readonly cart: ShoppingCart,
     private readonly messaging: Messaging,
     private readonly persistency: Persistency,
+    private readonly customer: CustomerOrder,
   ) {}
 
   get orderStatus(): OrderStatus {
@@ -26,6 +28,7 @@ export class Order {
     this.messaging.sendMessage(
       `Order received! The total is $${this.cart.totalWithDiscount()}`,
     );
+    console.log('Customer: ' + this.customer.getName(), this.customer.getIDN());
     this.persistency.saveOrder();
     this.cart.clear();
   }
