@@ -21,7 +21,7 @@ export class ShoppingCart implements ShoppingCartProtocol {
 
   total(): number {
     return +this._items
-      .reduce((prev, current) => prev + current.price, 1)
+      .reduce((prev, current) => prev + current.price, 0)
       .toFixed(2);
   }
 
